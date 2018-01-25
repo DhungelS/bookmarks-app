@@ -6,9 +6,24 @@ const store = {
   bookmarks: []
 };
 
-function bookmarkInfoElement(item){
-  return (`<li>
-    
-  
-  </li>`);
+function generateBookmarkElement(item) {
+  return (`<li></li>`);
 }
+
+function generateBookmarkString() {
+
+}
+
+function render() {
+
+}
+
+function handleNewItemSubmit(){
+  $('form').submit(function (event) {
+    event.preventDefault();
+    const title = $('label #title').val();
+    console.log(title);
+  });
+}
+
+handleNewItemSubmit();
