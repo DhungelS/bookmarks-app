@@ -18,7 +18,7 @@ const Store = (function () {
   };
 
   function filterByRating(rating) {
-    this.filteredBookmarks = this.bookmarks.filter(bookmark => {
+    return this.bookmarks.filter(bookmark => {
       return bookmark.rating > rating;
     });
 
@@ -29,7 +29,6 @@ const Store = (function () {
 
   return {
     bookmarks: [],
-    filteredBookmarks: [],
     addBookmarksToStore,
     findAndDelete,
     findById,

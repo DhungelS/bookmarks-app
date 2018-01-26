@@ -35,14 +35,23 @@ const Bookmarks = (function () {
   function generateBookmarkElements(bookmarks) {
     return bookmarks.map(bookmark => {
       return generateBookmarkElement(bookmark);
-    })
+    });
   }
 
- 
+
   function render() {
-    const bookmarkElement = generateBookmarkElements(Store.bookmarks);
-    $('.results').html(bookmarkElement);
+    let viewBookmarks = Store.bookmarks;
+    const ratingToFilterBy = $('#rating-filter option:selected').val();
+    const tempFilteredState = Store.filterByRating(ratingToFilterBy);
+
+    if (handleFilterByRatingClicked) {
+      viewBookmarks = tempFilteredState;
+    }
+
+    const currentBookmarkElements = generateBookmarkElements(viewBookmarks);
+    $('.results').html(currentBookmarkElements);
   }
+
 
   function handleDeleteItemClicked() {
     $('.results').on('click', '#delete-bookmark', function () {
@@ -75,10 +84,10 @@ const Bookmarks = (function () {
       const desc = $('label #description').val();
       const rating = $('#rating').val();
 
-      $('label #title').val("");
-      $('label #link').val("");
-      $('label #description').val("");
-      $('#rating').val("");
+      $('label #title').val('');
+      $('label #link').val('');
+      $('label #description').val('');
+      $('#rating').val('');
 
       api.createItem({ title, url, desc, rating }, (item) => {
         Store.addBookmarksToStore(item);
@@ -92,19 +101,15 @@ const Bookmarks = (function () {
 
   function handleFilterByRatingClicked() {
     $('#filter-btn').on('click', function () {
-      const ratingToFilterBy = $('#rating-filter').val();
-      Store.filterByRating(ratingToFilterBy);
-      // const filteredBookMarkElement = filteredBookmarks();
-      const bookmarkElement = generateBookmarkElements(Store.filteredBookmarks);
-      $('.results').html(bookmarkElement);
+      render();
     });
   }
 
- 
 
 
 
- 
+
+
 
   function bindEventListeners() {
     handleNewItemSubmit();

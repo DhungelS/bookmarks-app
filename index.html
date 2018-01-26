@@ -15,11 +15,11 @@
 
 <body>
 
-  <header>
+  <header role="banner">
     <h1>Webmark</h1>
   </header>
 
-  <main class="container">
+  <main class="container" role="main">
 
     <div class="row">
       <section class="input-info col">
@@ -46,10 +46,15 @@
       </section>
 
       <section class="current-bookmarks col">
-        <input type="number" id="rating-filter" min="1" max="5" required>
+        <select id="rating-filter">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
         <button type="button" id="filter-btn">Filter by rating</button>
         <h2>Current Bookmarks</h2>
-        <ul class="results"></ul>   
+        <ul class="results" aria-live="assertive"></ul>
       </section>
     </div>
 
