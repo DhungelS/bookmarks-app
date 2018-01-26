@@ -6,57 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-  
- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   <title>Bookmark Project</title>
 </head>
 
 <body>
+
   <header>
-    <h1>The Bookmark App</h1>
+    <h1>Webmark</h1>
   </header>
+
   <main class="container">
+
     <div class="row">
-    <section class="input-info col">
-      <h2>Enter a bookmark</h2>
+      <section class="input-info col">
+        <h2>Enter a bookmark</h2>
+        <form>
+          <label for="title">
+            Title:
+            <input type="text" id="title">
+          </label>
+          <label for="link">
+            Link:
+            <input type="text" id="link">
+          </label>
+          <label for="description">
+            Description:
+            <textarea id="description"></textarea>
+          </label>
+          <label for="rating">
+            Rating:
+            <input type="number" id="rating" min="1" max="5">
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
 
-      <form>
-        <label for="title">
-          Title:
-          <input type="text" id="title">
-        </label>
-        <label for="link">
-          Link:
-          <input type="text" id="link">
-        </label>
-        <label for="description">
-          Description:
-          <textarea id="description"></textarea>
-        </label>
-        <label for="rating">
-          Rating:
-          <input type="number" id="rating" min="1" max="5">
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+      <section class="current-bookmarks col">
+        <input type="number" id="rating-filter" min="1" max="5" required>
+        <button type="button" id="filter-btn">Filter by rating</button>
+        <h2>Current Bookmarks</h2>
+        <ul class="results"></ul>   
+      </section>
+    </div>
 
-    <section class="current-bookmarks col">
-      <h2>Current Bookmark</h2>
-      <ul class="results"></ul>
-    </section>
-  </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script type="text/javascript" src="scripts/store.js"></script>
     <script type="text/javascript" src="scripts/bookmarks.js"></script>
     <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
+
   </main>
+
 </body>
 
 </html>

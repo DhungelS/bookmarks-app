@@ -4,111 +4,118 @@
 
 //Include all the DOM functions such as event listeners, adding new items to the DOM etc.
 
-const store = {
-  bookmarks: []
-};
 
-function generateBookmarkElement(item) {
+const Bookmarks = (function () {
 
-  let displayToggle = 'info'
-  
-  if (item.expandedView === true) {
-    displayToggle = 'expanded'
-  }
+  function generateBookmarkElement(item) {
 
-  return (
-    `<li data-item-id="${item.id}" class="bookmark-item">
-    <p>${item.title}<p>
-    <p>${item.rating}</p>
+    let displayToggle = 'info'
+
+    if (item.expandedView === true) {
+      displayToggle = 'expanded'
+    }
+
+    return (
+      `<li data-item-id="${item.id}" class="bookmark-item">
+    <h4>${item.title}</h4>
+    <p><i class="fa fa-star-o fa-fw">${item.rating}</i></p>
     <div class="${displayToggle}"> 
-    <p>${item.url}</p>
+    <p><a href="${item.url}"><i class="fa fa-link fa-fw" aria-hidden="true"></a></i></p>
     <p>${item.desc}</p>
     </div>
-    <button id="delete-bookmark" type="button">delete</button>
-    <button id="expand-bookmark" type="button">View in Full</button>
+    <button id="delete-bookmark" type="button">Delete</button>
+    <button id="expand-bookmark" type="button">Detailed View</button>
     </li>`
 
-  );
+    );
 
-}
-
-function generateBookmarkString() {
-
-  return store.bookmarks.map(bookmark => {
-    return generateBookmarkElement(bookmark);
-  });
-
-}
-
-const findAndDelete = function (id) {
-  store.bookmarks = store.bookmarks.filter(bookmark => bookmark.id !== id);
-};
+  }
 
 
-const findById = function (id) {
-  return store.bookmarks.find(bookmark => bookmark.id === id);
-};
+  function generateBookmarkElements(bookmarks) {
+    return bookmarks.map(bookmark => {
+      return generateBookmarkElement(bookmark);
+    })
+  }
 
-function render() {
-  const bookmarkItemString = generateBookmarkString();
-  $('.results').html(bookmarkItemString)
-}
+ 
+  function render() {
+    const bookmarkElement = generateBookmarkElements(Store.bookmarks);
+    $('.results').html(bookmarkElement);
+  }
 
-function handleDeleteItemClicked() {
-  $('.results').on('click', '#delete-bookmark', function () {
-    const bmId = $(this).closest('.bookmark-item').attr('data-item-id');
-    api.deleteItem(bmId, () => {
-      findAndDelete(bmId);
-      render();
-    });
-  });
-
-}
-
-function expandedViewToggleClicked() {
-  $('.results').on('click', '#expand-bookmark', function () {
-    const bmId = $(this).closest('.bookmark-item').attr('data-item-id');
-    const getId = findById(bmId);
-    getId.expandedView = !getId.expandedView;
-    render();
-    //  console.log(getId)
-
-  });
-}
-
-function handleNewItemSubmit() {
-  $('form').submit(function (e) {
-    e.preventDefault();
-    const title = $('label #title').val();
-    const url = $('label #link').val();
-    const desc = $('label #description').val();
-    const rating = $('#rating').val();
-
-    api.createItem({ title, url, desc, rating }, (item) => {
-      addBookmarksToStore(item);
-      render();
-
+  function handleDeleteItemClicked() {
+    $('.results').on('click', '#delete-bookmark', function () {
+      const bmId = $(this).closest('.bookmark-item').attr('data-item-id');
+      api.deleteItem(bmId, () => {
+        Store.findAndDelete(bmId);
+        render();
+      });
     });
 
-  });
-}
+  }
+
+  function expandedViewToggleClicked() {
+    $('.results').on('click', '#expand-bookmark', function () {
+      const bmId = $(this).closest('.bookmark-item').attr('data-item-id');
+      const getId = Store.findById(bmId);
+      getId.expandedView = !getId.expandedView;
+      render();
+
+      //  console.log(getId)
+
+    });
+  }
+
+  function handleNewItemSubmit() {
+    $('form').submit(function (e) {
+      e.preventDefault();
+      const title = $('label #title').val();
+      const url = $('label #link').val();
+      const desc = $('label #description').val();
+      const rating = $('#rating').val();
+
+      $('label #title').val("");
+      $('label #link').val("");
+      $('label #description').val("");
+      $('#rating').val("");
+
+      api.createItem({ title, url, desc, rating }, (item) => {
+        Store.addBookmarksToStore(item);
+        render();
+
+      });
+
+    });
+  }
+
+
+  function handleFilterByRatingClicked() {
+    $('#filter-btn').on('click', function () {
+      const ratingToFilterBy = $('#rating-filter').val();
+      Store.filterByRating(ratingToFilterBy);
+      // const filteredBookMarkElement = filteredBookmarks();
+      const bookmarkElement = generateBookmarkElements(Store.filteredBookmarks);
+      $('.results').html(bookmarkElement);
+    });
+  }
+
+ 
 
 
 
-function addBookmarksToStore(item) {
-  store.bookmarks.push(item);
-  item.expandedView = false;
-}
+ 
 
-$(document).ready(function () {
-  handleNewItemSubmit();
-  api.getItems((items) => {
-    console.log(items);
-    items.forEach((item) => store.bookmarks.push(item));
-    render();
-  });
-  handleDeleteItemClicked()
-  expandedViewToggleClicked()
-  // handleDeleteItemClicked();
+  function bindEventListeners() {
+    handleNewItemSubmit();
+    handleDeleteItemClicked()
+    expandedViewToggleClicked()
+    handleFilterByRatingClicked();
+  }
 
-});
+
+  return {
+    bindEventListeners,
+    render
+  };
+}());

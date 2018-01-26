@@ -33,6 +33,8 @@ const api = (function () {
     });
   };
 
+
+
   return {
     getItems,
     createItem,
@@ -40,7 +42,3 @@ const api = (function () {
   };
 
 }());
-
-api.getItems(item => {
-  console.log(item);
-});
