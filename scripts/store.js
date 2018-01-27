@@ -1,12 +1,10 @@
 'use strict'
-//Store where all the data is kept/pushed inside
-
 const Store = (function () {
 
   const addBookmarksToStore = function(item) {
     this.bookmarks.push(item);
     item.expandedView = false;
-  }
+  };
 
   const findAndDelete = function (id) {
     this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
@@ -19,13 +17,10 @@ const Store = (function () {
 
   function filterByRating(rating) {
     return this.bookmarks.filter(bookmark => {
-      return bookmark.rating > rating;
+      return bookmark.rating >= rating;
     });
 
   }
-
-
-
 
   return {
     bookmarks: [],

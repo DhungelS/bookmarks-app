@@ -1,5 +1,4 @@
 'use strict';
-//Includes POST, GET, PATCH, AND DELETE requests to the API
 
 const api = (function () {
 
@@ -10,9 +9,7 @@ const api = (function () {
   };
 
   const createItem = function (itemData, callback) {
-    
     const item = JSON.stringify(itemData);
-
     const callSettings = {
       url: `${BASE_URL}/bookmarks`,
       method: 'POST',
@@ -20,9 +17,7 @@ const api = (function () {
       data: item,
       success: callback
     };
-
     $.ajax(callSettings);
-
   };
 
   const deleteItem = function(id, callback){
@@ -32,8 +27,6 @@ const api = (function () {
       success: callback
     });
   };
-
-
 
   return {
     getItems,

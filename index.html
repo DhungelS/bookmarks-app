@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
   <title>Bookmark Project</title>
 </head>
 
@@ -22,40 +21,44 @@
   <main class="container" role="main">
 
     <div class="row">
-      <section class="input-info col">
-        <h2>Enter a bookmark</h2>
-        <form>
-          <label for="title">
-            Title:
-            <input type="text" id="title">
-          </label>
-          <label for="link">
-            Link:
-            <input type="text" id="link">
-          </label>
-          <label for="description">
-            Description:
-            <textarea id="description"></textarea>
-          </label>
-          <label for="rating">
-            Rating:
-            <input type="number" id="rating" min="1" max="5">
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
 
-      <section class="current-bookmarks col">
-        <select id="rating-filter">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <button type="button" id="filter-btn">Filter by rating</button>
-        <h2>Current Bookmarks</h2>
-        <ul class="results" aria-live="assertive"></ul>
-      </section>
+      <div class="col">
+        <section class="input-info">
+          <form>
+            <label for="title">
+              Title:
+              <input type="text" id="title">
+            </label>
+            <label for="link">
+              Link:
+              <input type="text" id="link">
+            </label>
+            <label for="description">
+              Description:
+              <textarea id="description"></textarea>
+            </label>
+            <label for="rating">
+              Rating:
+              <input type="number" id="rating" min="1" max="5">
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="current-bookmarks">
+          <select id="rating-filter">
+            <option value="1">1 and Up</option>
+            <option value="2">2 and Up</option>
+            <option value="3">3 and Up</option>
+            <option value="4">4 and Up</option>
+          </select>
+          <button type="button" id="filter-btn">Filter by rating</button>
+          <ul class="results" aria-live="assertive"></ul>
+        </section>
+      </div>
+
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
