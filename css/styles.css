@@ -12,13 +12,11 @@ header {
   text-align: center;
 }
 
-textarea {
-  width: 300px;
-  height: 100px;
-}
+
 input {
   width: 500px;
 }
+
 
 .input-info {
  padding: 5px;
@@ -40,15 +38,22 @@ button {
 .container {
   margin: 0 auto;
 }
-
+.col h2{
+text-align: center;
+}
 section h2 {
 padding: 10px;
-
 }
 
 label {
-  display: inline-block;
   width: 100%;
+  font-size: 40px;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+  font-size: 10px;
 }
 
 .bookmark-item {
@@ -59,12 +64,11 @@ label {
   margin: 10px;
 }
 
-#filter-btn, #rating-filter{
-  float: right;
+
+ .current-bookmarks select{
+ margin-left: 50px;
 }
-#filter-btn {
-  margin-top : 5px;
-}
+
 
 .info {
   display: none;
@@ -75,7 +79,7 @@ label {
 }
 
 #rating-filter{
-  width: 50px;
+  width: 90px;
   height: 35px;
   margin: 8px 5px 0px 5px;
 }
