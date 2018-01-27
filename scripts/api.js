@@ -1,5 +1,4 @@
 'use strict';
-//Includes POST, GET, PATCH, AND DELETE requests to the API
 
 const api = (function () {
 
@@ -32,8 +31,6 @@ const api = (function () {
       success: callback
     });
   };
-
-
 
   return {
     getItems,
