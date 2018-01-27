@@ -1,6 +1,5 @@
 /* global Bookmarks, api, Store*/
 'use strict';
-
 $(document).ready(function () {
   Bookmarks.bindEventListeners();
   Bookmarks.render();

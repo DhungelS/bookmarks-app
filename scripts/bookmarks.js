@@ -88,7 +88,6 @@ const Bookmarks = (function () {
     });
   }
 
-
   function handleFilterByRatingClicked() {
     $('#filter-btn').on('click', function () {
       render();

@@ -4,7 +4,7 @@ const Store = (function () {
   const addBookmarksToStore = function(item) {
     this.bookmarks.push(item);
     item.expandedView = false;
-  }
+  };
 
   const findAndDelete = function (id) {
     this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
