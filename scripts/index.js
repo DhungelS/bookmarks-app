@@ -1,7 +1,5 @@
-'use strict'
-
-//When the DOM is ready bind all the event listeners
-//Update the references in the store
+/* global Bookmarks, api, Store*/
+'use strict';
 
 $(document).ready(function () {
   Bookmarks.bindEventListeners();

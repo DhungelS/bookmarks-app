@@ -1,18 +1,15 @@
-/* global api */
+/* global api, Store*/
 
 'use strict';
-
-//Include all the DOM functions such as event listeners, adding new items to the DOM etc.
-
 
 const Bookmarks = (function () {
 
   function generateBookmarkElement(item) {
 
-    let displayToggle = 'info'
+    let displayToggle = 'info';
 
     if (item.expandedView === true) {
-      displayToggle = 'expanded'
+      displayToggle = 'expanded';
     }
 
     return (
@@ -26,7 +23,6 @@ const Bookmarks = (function () {
     <button id="delete-bookmark" type="button">Delete</button>
     <button id="expand-bookmark" type="button">Detailed View</button>
     </li>`
-
     );
 
   }
@@ -61,7 +57,6 @@ const Bookmarks = (function () {
         render();
       });
     });
-
   }
 
   function expandedViewToggleClicked() {
@@ -70,9 +65,6 @@ const Bookmarks = (function () {
       const getId = Store.findById(bmId);
       getId.expandedView = !getId.expandedView;
       render();
-
-      //  console.log(getId)
-
     });
   }
 
@@ -92,9 +84,7 @@ const Bookmarks = (function () {
       api.createItem({ title, url, desc, rating }, (item) => {
         Store.addBookmarksToStore(item);
         render();
-
       });
-
     });
   }
 
@@ -105,16 +95,10 @@ const Bookmarks = (function () {
     });
   }
 
-
-
-
-
-
-
   function bindEventListeners() {
     handleNewItemSubmit();
-    handleDeleteItemClicked()
-    expandedViewToggleClicked()
+    handleDeleteItemClicked();
+    expandedViewToggleClicked();
     handleFilterByRatingClicked();
   }
 
