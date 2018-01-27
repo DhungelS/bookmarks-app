@@ -1,9 +1,6 @@
-/* global api, Store */
+/* global api, Store*/
 
 'use strict';
-
-
-
 
 const Bookmarks = (function () {
 
@@ -30,13 +27,11 @@ const Bookmarks = (function () {
 
   }
 
-
   function generateBookmarkElements(bookmarks) {
     return bookmarks.map(bookmark => {
       return generateBookmarkElement(bookmark);
     });
   }
-
 
   function render() {
     let viewBookmarks = Store.bookmarks;
@@ -91,18 +86,11 @@ const Bookmarks = (function () {
     });
   }
 
-
   function handleFilterByRatingClicked() {
     $('#filter-btn').on('click', function () {
       render();
     });
   }
-
-
-
-
-
-
 
   function bindEventListeners() {
     handleNewItemSubmit();
@@ -110,7 +98,6 @@ const Bookmarks = (function () {
     expandedViewToggleClicked();
     handleFilterByRatingClicked();
   }
-
 
   return {
     bindEventListeners,
