@@ -4,9 +4,8 @@
   padding: 0;
 }
 
-body{
+body {
   background: linear-gradient(to right, #c9d6ff, #e2e2e2);
-  
 }
 
 header {
@@ -21,11 +20,16 @@ input {
   width: 500px;
 }
 
+.input-info {
+ padding: 5px;
+ background-color: #eee8aa;
+ border: 1px solid grey;
+ padding: 20px;
+}
+
 #rating {
   width: 50px;
 }
-
-
 
 button {
   padding: 5px;
@@ -42,17 +46,17 @@ padding: 10px;
 
 }
 
-
 label {
   display: inline-block;
   width: 100%;
 }
 
-
 .bookmark-item {
   border: solid 1px grey;
   list-style: none;
   padding: 25px;
+  background-color: #FE7F80;
+  margin: 10px;
 }
 
 #filter-btn, #rating-filter{
@@ -75,9 +79,3 @@ label {
   height: 35px;
   margin: 8px 5px 0px 5px;
 }
-
-
-
-
-
-
