@@ -27,13 +27,11 @@ const Bookmarks = (function () {
 
   }
 
-
   function generateBookmarkElements(bookmarks) {
     return bookmarks.map(bookmark => {
       return generateBookmarkElement(bookmark);
     });
   }
-
 
   function render() {
     let viewBookmarks = Store.bookmarks;
@@ -100,7 +98,6 @@ const Bookmarks = (function () {
     expandedViewToggleClicked();
     handleFilterByRatingClicked();
   }
-
 
   return {
     bindEventListeners,
