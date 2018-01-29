@@ -12,48 +12,37 @@ header {
   text-align: center;
 }
 
-
-input {
-  width: 500px;
-}
-
-
-.input-info {
- padding: 5px;
- background-color: #eee8aa;
- border: 1px solid grey;
- padding: 20px;
-}
-
-#rating {
-  width: 50px;
-}
-
 button {
   padding: 5px;
   color: white;
   background: slategrey;
 }
 
+form {
+  background: #BEBEBE;
+  padding: 10px;
+  border: 1px solid black;
+ 
+}
+
+form input {
+  width: 100%;
+  display:  block;
+  font-size: 25px;
+  margin: 25px 0px;
+}
+
+#rating {
+  width: 10%;
+}
+
+form textarea {
+  width: 100%;
+}
+
+
 .container {
   margin: 0 auto;
-}
-.col h2{
-text-align: center;
-}
-section h2 {
-padding: 10px;
-}
-
-label {
-  width: 100%;
-  font-size: 40px;
-}
-
-textarea {
-  width: 500px;
-  height: 200px;
-  font-size: 10px;
 }
 
 .bookmark-item {
@@ -64,12 +53,6 @@ textarea {
   margin: 10px;
 }
 
-
- .current-bookmarks select{
- margin-left: 50px;
-}
-
-
 .info {
   display: none;
 }
@@ -77,13 +60,3 @@ textarea {
 .expanded {
   display: block;
 }
-
-#rating-filter{
-  width: 90px;
-  height: 35px;
-  margin: 8px 5px 0px 5px;
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 7aab5b4df5744301f6fd823f072c4a51ab261e27
