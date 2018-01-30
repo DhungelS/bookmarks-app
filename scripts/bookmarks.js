@@ -74,10 +74,10 @@ const Bookmarks = (function () {
       const url = $('#link').val();
       const desc = $('#description').val();
       const rating = $('#rating').val();
-      console.log(title);
-      $('label #title').val('');
-      $('label #link').val('');
-      $('label #description').val('');
+      
+      $('#title').val('');
+      $('#link').val('');
+      $('#description').val('');
       $('#rating').val('');
 
       api.createItem({ title, url, desc, rating }, (item) => {
