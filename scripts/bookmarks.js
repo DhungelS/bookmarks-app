@@ -68,15 +68,16 @@ const Bookmarks = (function () {
 
   function handleNewItemSubmit() {
     $('form').submit(function (e) {
+     
       e.preventDefault();
-      const title = $('label #title').val();
-      const url = $('label #link').val();
-      const desc = $('label #description').val();
+      const title = $('#title').val();
+      const url = $('#link').val();
+      const desc = $('#description').val();
       const rating = $('#rating').val();
-
-      $('label #title').val('');
-      $('label #link').val('');
-      $('label #description').val('');
+      
+      $('#title').val('');
+      $('#link').val('');
+      $('#description').val('');
       $('#rating').val('');
 
       api.createItem({ title, url, desc, rating }, (item) => {
@@ -88,6 +89,7 @@ const Bookmarks = (function () {
 
   function handleFilterByRatingClicked() {
     $('#filter-btn').on('click', function () {
+      
       render();
     });
   }

@@ -22,25 +22,26 @@
     <div class="container">
       <div class="row">
 
-        <div class="col">
+        <div class="col-md-6 col-sm-6 col-xs-6">
           <section class="input-info">
             <form>
               <input type="text" id="title" placeholder="Title">
               <input type="text" id="link" placeholder="URL">
               <textarea id="description" placeholder="Description"></textarea>
               <input type="number" id="rating" min="1" max="5" placeholder="0">
-              <button type="submit">Submit</button>
+              <button class="sumbit-btn" type="submit">Submit</button>
             </form>
           </section>
         </div>
 
-        <div class="col">
+        <div class="col-md-6 col-sm-6 col-xs-6">
           <section class="current-bookmarks">
             <select id="rating-filter">
               <option value="1">1 and Up</option>
               <option value="2">2 and Up</option>
               <option value="3">3 and Up</option>
               <option value="4">4 and Up</option>
+              <option value="5">Fivestar</option>
             </select>
             <button type="button" id="filter-btn">Filter by rating</button>
             <ul class="results" aria-live="assertive"></ul>
