@@ -4,16 +4,31 @@
   padding: 0;
 }
 
+
 body {
   background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-.container {
+main {
   margin: 0 auto;
+  max-width: 1200px;
 }
+
+
 
 header {
   text-align: center;
+}
+
+h1{
+  font-size: 75px;
+  background-color: floralwhite;
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 100px;
+  margin-top: 25px;
+  color: slategrey;
 }
 
 button {
@@ -23,9 +38,9 @@ button {
 }
 
 form {
-  background: #BEBEBE;
+  
   padding: 10px;
-  border: 1px solid black;
+ 
  
 }
 
@@ -33,19 +48,59 @@ form input {
   width: 100%;
   display:  block;
   font-size: 25px;
-  margin: 25px 0px;
+  margin: 15px auto;
+  border: 0;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  border-radius: 100px;
+  outline:none;
+}
+
+form input:hover {
+  box-shadow: 5px 10px 8px #888888;
 }
 
 #rating {
-  width: 40px;
+  width: 50px;
+}
+
+#sumbit-btn {
+display: block;
+margin: 0 auto;
+width: 100px;
+font-size: 25px;
+border-radius: 100px;
+outline:none;
 }
 
 form textarea {
   width: 100%;
+  display: block;
   height: 125px;
+  margin: 15px auto;
+  font-size: 25px;
+  padding: 5px;
+  outline:none;
 }
 
+form textarea:hover{
+  box-shadow: 5px 10px 8px #888888;
+}
 
+.filter-items {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#rating-filter, #filter-btn {
+  outline:none;
+}
+
+#filter-btn{
+  border-radius: 100px;
+}
 
 .bookmark-item {
   border: solid 1px grey;
@@ -53,8 +108,12 @@ form textarea {
   padding: 25px;
   background-color: #FE7F80;
   margin: 10px;
+  
 }
 
+h4, .desc{
+  word-wrap: break-word;
+}
 .info {
   display: none;
 }
@@ -63,7 +122,20 @@ form textarea {
   display: block;
 }
 
-form button {
-  margin-left:  auto;
-  margin-right: auto;
+@media (min-width: 768px) {
+  .input-info {
+  display: inline-block;
+  width: 65%;
 }
+.current-bookmarks{
+  display: inline-block;
+  width: 30%;
+  top: 0;
+  vertical-align: top;
+}
+.bookmark-item {
+  min-width: 250px;
+}
+form input, form textarea{
+  width: 75%;
+}  
