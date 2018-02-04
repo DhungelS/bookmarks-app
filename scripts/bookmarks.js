@@ -18,7 +18,7 @@ const Bookmarks = (function () {
     <p><i class="fa fa-star-o fa-fw">${item.rating}</i></p>
     <div class="${displayToggle}"> 
     <p><a href="${item.url}"><i class="fa fa-link fa-fw" aria-hidden="true"></a></i></p>
-    <p>${item.desc}</p>
+    <p class="desc">${item.desc}</p>
     </div>
     <button id="delete-bookmark" type="button">Delete</button>
     <button id="expand-bookmark" type="button">Detailed View</button>
