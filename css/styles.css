@@ -12,7 +12,7 @@ body {
 
 main {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1680px;
 }
 
 
@@ -22,7 +22,7 @@ header {
 }
 
 h1{
-  font-size: 75px;
+  font-size: 50px;
   background-color: floralwhite;
   width: 75%;
   margin: 0 auto;
@@ -76,11 +76,12 @@ outline:none;
 form textarea {
   width: 100%;
   display: block;
-  height: 125px;
+  height: 140px;
   margin: 15px auto;
   font-size: 25px;
-  padding: 5px;
+  padding: 20px;
   outline:none;
+  border-radius: 100px;
 }
 
 form textarea:hover{
@@ -106,14 +107,32 @@ form textarea:hover{
   border: solid 1px grey;
   list-style: none;
   padding: 25px;
-  background-color: #FE7F80;
   margin: 10px;
-  
 }
 
+ul li:nth-child(even){
+  background: linear-gradient(#D66D75, #E29587);
+  color: floralwhite;
+  clip-path: polygon(100% 0%, 100% 44%, 100% 100%, 3% 96%, 0% 50%, 0 2%);
+  }
+  
+ul li:nth-child(odd){
+  background: linear-gradient(#1e3c72, #2a5298);
+  color: floralwhite;
+  clip-path: polygon(95% 6%, 100% 44%, 100% 100%, 0 100%, 0% 50%, 0 2%);
+  }
+
 h4, .desc{
+  overflow-wrap: break-word;
   word-wrap: break-word;
+  hyphens: auto;
 }
+
+#delete-bookmark, #expand-bookmark {
+ border-radius: 100px;
+ box-shadow: none;
+}
+
 .info {
   display: none;
 }
@@ -135,7 +154,9 @@ h4, .desc{
 }
 .bookmark-item {
   min-width: 250px;
+ 
 }
-form input, form textarea{
-  width: 75%;
-}  
+
+
+
+}
