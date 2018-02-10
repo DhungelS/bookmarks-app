@@ -103,6 +103,11 @@ form textarea:hover{
   border-radius: 100px;
 }
 
+.results {
+  height: 85vh;
+  overflow-y:scroll;
+}
+
 .bookmark-item {
   border: solid 1px grey;
   list-style: none;
